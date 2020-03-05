@@ -9,5 +9,5 @@
     "deploy-webos": "./deploy_webos.sh"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
