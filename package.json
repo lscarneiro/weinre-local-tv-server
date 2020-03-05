@@ -1,0 +1,13 @@
+{
+  "name": "weinre",
+  "version": "1.0.0",
+  "description": "Inpect web applications on TVs",
+  "main": "",
+  "scripts": {
+    "start": "docker run --rm -d -p 8080:8080 --name weinre_server beevelop/weinre",
+    "stop": "docker stop weinre_server",
+    "deploy-webos": "./deploy_webos.sh"
+  },
+  "author": "",
+  "license": "ISC"
+}

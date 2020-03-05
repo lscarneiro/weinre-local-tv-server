@@ -1,0 +1,10 @@
+{
+  "id": "com.weinre.runner",
+  "version": "1.0.0",
+  "vendor": "weinre",
+  "type": "web",
+  "main": "index.html",
+  "title": "Weinre Runner",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png"
+}
