@@ -1,25 +1,44 @@
-# Weinre local server for TVs
-Create a weinre server locally to help develop TV web apps
+# Local server for TV apps (with weinre)
+In this repository you can find tools and tips to help you debug TV apps
 
 ## Requirements
 
 * [`npm`](https://npm.community/)
-* [`docker`](https://www.docker.com/)
+* [`docker`](https://www.docker.com/)*
 
-### Extra requirements for the TV Environments
+*for weinre server
 
-#### webOS
-* [webOS SDK](http://webostv.developer.lge.com/sdk/installation/)
+## Platforms
+* [WebOS](webos/README.md)
+* Tizen (soon...)
 
 
-## Starting the server
+---
+
+
+## How-to use
+
+### Generate your configuration file
+First, you will need a `properties.sh`
+
+To use the sample provide, just run:
+
 ```shell
-$ npm start
+npm run prepare
 ```
 
-## Stopping the server
+This will clone the sample `properties.sample.sh` file into your `properties.sh`
+
+More info about the `properties.sh` at the end
+
+## Starting the weinre server
 ```shell
-$ npm stop
+npm start
+```
+
+## Stopping the weinre server
+```shell
+npm stop
 ```
 
 ## Setting up the server
@@ -49,29 +68,51 @@ The syntax for the `-p` argument for `docker run` command is: `-p <host_port>:<c
 ```
 Will make the container listen on `8001` port instead.
 
-## Setting up the client app
-
-Out of the box, the app is configured to reach for a weinre server at `http://localhost:8080`.
-
-To change this, you need to change the value of `weinreHost` and `weinrePort` accordingly to your need, both variables are defined in the `index.html` file as seening below:
-```javascript
-//...
-var weinreHost = "localhost";
-var weinrePort = "8080";
-//...
-```
 
 ## Deploying TV apps
 
 ### webOS
-It is important to have installed the [webOS SDK](http://webostv.developer.lge.com/sdk/installation/)
+It is important to have installed the [webOS SDK](http://webostv.developer.lge.com/sdk/installation/), more info [here](webos/README.md).
 
-Open the `webOS TV CLI` app and run: 
+#### Runner app installation
 ```shell
-$ ./deploy_webos.sh
+npm run install-webos
 ```
-or:
+#### Runner app with Chromium debugger
 ```shell
-$ npm run deploy-webos
+npm run debug-webos
 ```
-The `ipk` file will be available in the `ipk_output/` directory
+This will deploy, install and run the app with the  chromium debugger.
+
+
+---
+
+## Configuration file
+
+These are options for the `properties.sh` file:
+
+`DEBUG_TYPE` - Defines if a weinre server is being used or if you're debugging directly with chromium dev tools
+(options are: `direct` or `weinre`)
+
+`WEINRE_HOST` - Defines were the weinre server is running, if you started one locally with `npm run start` then it's your machine's IP on the local network
+> Only needed when `DEBUG_TYPE=weinre`
+
+`WEINRE_PORT` - Defines the port your `WEINRE_HOST` is running, generally `8080`
+> Only needed when `DEBUG_TYPE=weinre`
+
+`WEINRE_IDENTIFIER` - This important only when using a shared weinre server
+> Only needed when `DEBUG_TYPE=weinre`
+
+`APP_HOST` - The host where the actual app is bein served, if it's running on your machine, then it's your machine's IP on the local network
+
+`APP_PORT` - The port where the actual app is bein served generally `80`
+
+
+
+`WEBOS_DEVICE` - The name of the "device" you're targeting at, for the webos emulator it is generally set as `emulator`. 
+
+> You can list your webos devices using `webOS TV CLI` and running:
+> ```shell
+> ares-setup-device -l 
+> ```
+

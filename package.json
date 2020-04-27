@@ -6,7 +6,10 @@
   "scripts": {
     "start": "docker run --rm -d -p 8080:8080 --name weinre_server beevelop/weinre",
     "stop": "docker stop weinre_server",
-    "deploy-webos": "./deploy_webos.sh"
+    "deploy-webos": "./webos/deploy_webos.sh",
+    "install-webos": "./webos/debug_webos.sh",
+    "debug-webos": "./webos/debug_webos.sh",
+    "prepare": "cp properties.sample.sh properties.sh"
   },
   "author": "",
   "license": "MIT"
