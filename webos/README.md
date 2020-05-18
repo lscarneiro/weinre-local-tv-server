@@ -15,6 +15,25 @@
 
 ## Setup real device
 
+### Automatically
+
+Certify that your WebOS device is in developer mode and with the Key Server enabled
+> To check this, open the developer app and toggle both *`Dev Mode Status` and `Key Server` to `ON`.
+> 
+> \* Device should ask for a restart
+
+Certify that you set up both `WEBOS_DEVICE` and `WEBOS_DEVICE_IP` on your `properties.sh`
+
+```shell
+npm run add-webos
+```
+The script will wait for the `Passphrase` (shown on develope app on TV screen). Enter it accordingly
+
+If no errors were shown, you're ready to debug on this device now.
+
+If you're getting errors, try adding it manually, as explained below on the next section.
+
+### Manually
 Search TV on network
 ```shell
 ares-setup-device -s

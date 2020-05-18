@@ -10,4 +10,5 @@ WEINRE_IDENTIFIER=anonymous # this important only when using a shared weinre ser
 
 ########## WebOS specific ##########
 WEBOS_DEVICE=emulator
+WEBOS_DEVICE_IP=<YOUR_REAL_DEVICE_IP>
 

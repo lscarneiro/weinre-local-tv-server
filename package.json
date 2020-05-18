@@ -9,6 +9,7 @@
     "deploy-webos": "./webos/deploy_webos.sh",
     "install-webos": "./webos/debug_webos.sh",
     "debug-webos": "./webos/debug_webos.sh",
+    "add-webos": "./webos/add_webos.sh",
     "prepare": "cp properties.sample.sh properties.sh"
   },
   "author": "",
