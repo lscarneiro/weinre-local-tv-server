@@ -2,3 +2,4 @@ webos/output/
 webos/src/index.html
 properties.sh
 .DS_Store
+.vscode/
